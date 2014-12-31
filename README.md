@@ -1,11 +1,11 @@
 # net-buffer
 Fast buffer (message) passing over network socket for Nodejs. On my Mac Air 2012 with i3 CPU, a single core/process containing both server and client can encode->send->receive->decode ~100,000 empty messages per second.
 
-## .encode(message)
-encode can accept `Buffer` or `undefined`. Max message length is limited by 16 bit unsigned int, so 65,535 bytes (65.5KB), to increase max length fork and change 16 bit to 32. 
+## .encode([Buffer])
+encode can accept `Buffer` or `undefined`. Max Buffer length is limited by 16 bit unsigned int, so 65,535 bytes (65.5KB), to increase max length fork and change 16 bit to 32. 
 ```
 var encode= require('net-buffer').encode
-encode() // decoder will receive an undefined message
+encode() // decoder will receive an undefined Buffer
 encode( new Buffer('Hello World!') )
 ```
 
@@ -23,7 +23,7 @@ net.createServer(function(socket)
 ```
 * __socket__ Socket
 * __callback__ Function, called with a single Buffer argument
-* __bodyOnly__ Boolean, Optional, Default true; Set to false to get body prefixed with length (can reuse Buffer when need to proxy the message)
+* __bodyOnly__ Boolean, Optional, Default true; Set to false to get body prefixed with length (can reuse Buffer when need to proxy the Buffer)
 
 ## Installation
 ```
