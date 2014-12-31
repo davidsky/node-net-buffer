@@ -4,7 +4,7 @@ Fast buffer (message) passing over network socket for Nodejs. On my Mac Air 2012
 ## .encode(message)
 encode can accept `Buffer` or `undefined`. Max message length is limited by 16 bit unsigned int, so 65,535 bytes (65.5KB), to increase max length fork and change 16 bit to 32. 
 ```
-var encode= require('net-message').encode
+var encode= require('net-buffer').encode
 encode() // decoder will receive an undefined message
 encode( new Buffer('Hello World!') )
 ```
@@ -13,7 +13,7 @@ encode( new Buffer('Hello World!') )
 It directly reads from the socekt without using the socket.on('data', ) event.
 ```
 var net= require('net')
-var decode= require('net-message').decode
+var decode= require('net-buffer').decode
 net.createServer(function(socket)
 {
 	socket.on('readable', decode(socket, function(body){
