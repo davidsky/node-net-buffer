@@ -7,12 +7,13 @@ net.createServer(function(socket)
 {
 	var received= 0
 
-	socket.on('readable', decode(socket, function(body)
+	socket.on('readable', decode(socket, function(buffer)
 	{
-		if( ++received===messages ){
+		if( ++received===messages )
+		{
 			var diff = process.hrtime(time)
 			console.log('sent & received', messages,'messages;', diff[0]+'.'+diff[1], 'seconds')
-			console.log('last message body', body? body.toString(): 'is undefined')
+	   		console.log('last buffer is', buffer? buffer.toString(): undefined)
 		}
 	}))
 
@@ -22,7 +23,6 @@ var client= net.connect({port: 8181}, function()
 {
 	time= process.hrtime()
 	for(var i= 0, max= messages; max>i; ++i)
-		// client.write( encode() )
-		client.write( encode(new Buffer('Hello World!')) );
-
+		client.write( encode() )
+		// client.write( encode(new Buffer('Hello World!')) );
 });
