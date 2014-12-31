@@ -1,0 +1,25 @@
+{
+  "name": "net-buffer",
+  "version": "0.0.1",
+  "description": "send and receive buffer through network socket",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yundotcom/node-net-buffer"
+  },
+  "keywords": [
+    "buffer",
+    "net",
+    "netowrk",
+    "message"
+  ],
+  "author": "David Sky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yundotcom/node-net-buffer/issues"
+  },
+  "homepage": "https://github.com/yundotcom/node-net-buffer"
+}
