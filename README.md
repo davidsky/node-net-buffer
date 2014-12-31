@@ -10,7 +10,7 @@ encode( new Buffer('Hello World!') )
 ```
 
 ## .decode(socket, callback[, bodyOnly])
-It directly reads from the socekt without using the socket.on('data', ) event.
+decode directly reads from the socekt without using the socket.on('data', ) event.
 ```
 var net= require('net')
 var decode= require('net-buffer').decode
