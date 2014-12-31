@@ -16,8 +16,8 @@ var net= require('net')
 var decode= require('net-buffer').decode
 net.createServer(function(socket)
 {
-	socket.on('readable', decode(socket, function(body){
-	    console.log( body? body.toString(): 'body is undefined')
+	socket.on('readable', decode(socket, function(buffer){
+	    console.log('buffer is', buffer? buffer.toString(): undefined)
 	}, true))
 }).listen(8181)
 ```
