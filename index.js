@@ -33,13 +33,17 @@ exports.decode= function(socket, callback, bodyOnly)
 }
 
 var invalidMessageError= new Error('Invalid message, must be of type undefined or buffer')
+var messageLengthError= new Error('Invalid message, must be under 65,535 bytes')
 
 exports.encode= function(message)
 {
 	if( undefined===message ){
 		var buffer= new Buffer(2)
 	}
-	else if( Buffer.isBuffer(message) ){
+	else if( Buffer.isBuffer(message) )
+	{
+		if( message.length > 65535 )
+			throw messageLengthError;
 		var buffer= new Buffer(2 + message.length)
 		message.copy(buffer, 2)
 	}
