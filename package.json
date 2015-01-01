@@ -1,6 +1,6 @@
 {
   "name": "net-buffer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "send and receive buffer through network socket",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yundotcom/node-net-buffer"
+    "url": "https://github.com/davidSky/node-net-buffer"
   },
   "keywords": [
     "buffer",
@@ -19,7 +19,7 @@
   "author": "David Sky",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/yundotcom/node-net-buffer/issues"
+    "url": "https://github.com/davidSky/node-net-buffer/issues"
   },
-  "homepage": "https://github.com/yundotcom/node-net-buffer"
+  "homepage": "https://github.com/davidSky/node-net-buffer"
 }
