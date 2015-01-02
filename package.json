@@ -1,6 +1,6 @@
 {
   "name": "net-buffer",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "send and receive buffer through network socket",
   "main": "index.js",
   "scripts": {
