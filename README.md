@@ -29,3 +29,5 @@ net.createServer(function(socket)
 ```
 npm install net-buffer
 ```
+---
+MIT License (MIT)
