@@ -1,7 +1,7 @@
 'use strict';
 
 // net-message
-exports.decode= function(socket, callback, bodyOnly)
+function decode(socket, callback, bodyOnly)
 {
 	var nextLength= 0
 
@@ -31,11 +31,12 @@ exports.decode= function(socket, callback, bodyOnly)
 
 	return decode
 }
+exports.decode= decode
 
 var invalidMessageError= new Error('Invalid message, must be of type undefined or buffer')
 var messageLengthError= new Error('Invalid message, must be under 65,535 bytes')
 
-exports.encode= function(message)
+function encode(message)
 {
 	if( undefined===message ){
 		var buffer= new Buffer(2)
@@ -55,3 +56,4 @@ exports.encode= function(message)
 
 	return buffer
 }
+exports.encode= encode
