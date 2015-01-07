@@ -36,17 +36,19 @@ exports.decode= decode
 var invalidMessageError= new Error('Invalid message, must be of type undefined or buffer')
 var messageLengthError= new Error('Invalid message, must be under 65,535 bytes')
 
-function encode(message)
+function encode(message, prefixLength)
 {
+	prefixLength= prefixLength || 0
+
 	if( undefined===message ){
-		var buffer= new Buffer(2)
+		var buffer= new Buffer(2 + prefixLength)
 	}
 	else if( Buffer.isBuffer(message) )
 	{
 		if( message.length > 65535 )
 			throw messageLengthError;
-		var buffer= new Buffer(2 + message.length)
-		message.copy(buffer, 2)
+		var buffer= new Buffer(2 + message.length + prefixLength)
+		message.copy(buffer, 2 + prefixLength)
 	}
 	else{
 		throw invalidMessageError
