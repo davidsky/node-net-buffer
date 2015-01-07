@@ -1,9 +1,9 @@
 # net-buffer (netBuf)
-Length prefixed fast binary messaging over network for Nodejs. A single core/process on a Mac Air 2012 with i3 CPU containing both server and client can encode->send->decode ~100,000 empty messages per second over a local TCP socket.
+Performance oriented binary messaging over network for Nodejs. A single core/process on a Mac Air 2012 with i3 CPU containing both server and client can encode->send->decode ~100,000 empty messages per second over a TCP socket.
 
 ## netBuf.encode([Buffer])
 encode can accept `Buffer` or `undefined`. Max Buffer length is limited by 16 bit unsigned int, so 65,535 bytes (65.5KB), to increase the limit fork and change to 32 bit.
-```
+```js
 var net= require('net')
 var netBuf= require('net-buffer')
 
@@ -16,7 +16,7 @@ var client= net.connect({port: 8181}, function()
 
 ## netBuf.decode(socket, callback[, bodyOnly])
 decode directly reads from the socekt without using the socket.on('data', ) event.
-```
+```js
 var net= require('net')
 var decode= require('net-buffer').decode
 
@@ -36,4 +36,4 @@ net.createServer(function(socket)
 npm install net-buffer
 ```
 ---
-MIT License (MIT)
+MIT License
