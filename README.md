@@ -1,8 +1,8 @@
 # net-buffer
-Length prefixed fast binary messaging over network with Nodejs. 
+Very fast message length-prefixing encoder and decoder.
 
 ## .encode([Buffer])
-encode can accept `Buffer` or `undefined`. Max Buffer length is limited to 65,535 bytes (65.53KB).
+encode can accept `Buffer` or `undefined`
 
 ```js
 var net= require('net')
@@ -28,7 +28,22 @@ net.createServer(function(socket)
 	}, true))
 }).listen(8181)
 ```
-* __socket__ Socket
+* _
+
+## .setMaxMessageLength(number)
+Defines the maximum supported message length (header), valid values are 2 (for 65,135 bytes) and 4 (for 4,294,967,196 bytes), default is 2.
+```js
+var netBuf= require('net-buffer')
+netBuf.setMaxMessageLength(4)
+```
+## Benchmark
+Defines the maximum supported message length (header), valid values are 2 (for 65,135 bytes) and 4 (for 4,294,967,196 bytes), default is 2.
+```shell
+ // Mac Air 2013
+ $ node test.js 100000
+ $ > ok sent and received 100000 messages in 0.786218543 seconds
+```
+_socket__ Socket
 * __callback__ Function, called with a single Buffer argument
 * __bodyOnly__ Boolean, Optional, Default true; Set to false to get body prefixed with length (can reuse Buffer when need to proxy the Buffer)
 
