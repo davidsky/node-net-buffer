@@ -28,6 +28,10 @@ net.createServer(function(socket)
 	}, true))
 }).listen(8181)
 ```
+* __socket__ Socket
+* __callback__ Function, called with a single Buffer argument
+* __bodyOnly__ Boolean, Optional, Default true; Set to false to get body prefixed with length (can reuse Buffer when need to proxy the Buffer)
+
 
 ## .setMaxMessageLength(number)
 Defines the maximum supported message length (header), valid values are 2 (for 65,135 bytes) and 4 (for 4,294,967,196 bytes), default is 2.
@@ -42,9 +46,7 @@ Defines the maximum supported message length (header), valid values are 2 (for 6
  $ node test.js 100000
  $ > ok sent and received 100000 messages in 0.786218543 seconds
 ```
-* __socket__ Socket
-* __callback__ Function, called with a single Buffer argument
-* __bodyOnly__ Boolean, Optional, Default true; Set to false to get body prefixed with length (can reuse Buffer when need to proxy the Buffer)
+
 
 ## Installation
 ```
