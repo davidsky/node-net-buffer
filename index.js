@@ -37,7 +37,7 @@ function decode(socket, callback, bodyOnly)
 			else if( null===(lengthBuffer= socket.read(headerLength)) )
 				return
 			else
-				length= lengthBuffer.readUInt16BE(0, true)
+				length= lengthBuffer.$netBufferReadInt(0, true)
 
 			if( length>headerLength && null===(body= socket.read(length - headerLength)) )
 				return nextLength= length
@@ -72,7 +72,7 @@ function encode(message, prefixLength)
 		throw new Error('Invalid message, must be of type undefined or buffer')
 	}
 	
-	buffer.writeUInt16BE(buffer.length, 0)
+	buffer.$netBufferWriteInt(buffer.length, 0)
 
 	return buffer
 }
