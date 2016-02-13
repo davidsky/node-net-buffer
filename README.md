@@ -39,10 +39,10 @@ Defines the maximum supported message length (header), valid values are 2 (for 6
 var netBuf= require('net-buffer')
 netBuf.setMaxMessageLength(4)
 ```
+
 ## Benchmark
-Defines the maximum supported message length (header), valid values are 2 (for 65,135 bytes) and 4 (for 4,294,967,196 bytes), default is 2.
+Below is Mac Air 2013 results
 ```shell
- // Mac Air 2013
  $ node test.js 100000
  $ > ok sent and received 100000 messages in 0.786218543 seconds
 ```
